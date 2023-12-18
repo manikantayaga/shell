@@ -2,10 +2,10 @@
 VALIDATE(){
     if [$1 -ne 0 ]
     then
-        echo "my -sql....failure"
+        echo "failure"
         exit 1
     else
-        echo  "my-sql ... sucess"
+        echo  "sucess"
     fi
 }
 USERID=$(id -u)
@@ -15,7 +15,8 @@ USERID=$(id -u)
      echo "Error pless run as root user"
     exit 1
  fi
-VALIDATE $?
-yum install mysql-y
-VALIDATE $?
-yum install java-y
+yum install mysql -y
+VALIDATE $? "Installing mysql"
+
+yum install java -y
+VALIDATE $? "Installing java"
