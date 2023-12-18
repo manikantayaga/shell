@@ -1,4 +1,8 @@
 #!/bin/bash
+DATE=$(date +%F)
+SCRIPT_NAME=$0
+LOGFILE=/tmp/$SCRIPT_NAME-$DATE.log
+
 VALIDATE(){
     if [$1 -ne 0 ]
     then
@@ -15,8 +19,8 @@ USERID=$(id -u)
      echo "Error pless run as root user"
     exit 1
  fi
-yum install mysql -y
+yum install mysql -y &>>$LOGFILE
 VALIDATE $? "Installing mysql"
 
-yum install postfix -y
-VALIDATE $? "Installing java"
+yum install postfix -y &>>$LOGFILE
+VALIDATE $? "Installing postfix"
