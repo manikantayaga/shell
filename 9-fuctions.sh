@@ -2,10 +2,10 @@
 VALIDATE(){
     if [$1 -ne 0 ]
     then
-        echo " instalastion.... failure"
+        echo " $2.... failure"
         exit 1
     else
-        echo  " instalation ...sucess"
+        echo  " $2 ...sucess"
     fi
 }
 USERID=$(id -u)
