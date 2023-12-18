@@ -15,7 +15,7 @@ else
    echo   "Installation of mysql is sucess"
 fi
 
-yum install mavenn -y
+yum install maven -y
 if [ $? -ne 0]
 then 
    echo  "Installation of maven is error"
